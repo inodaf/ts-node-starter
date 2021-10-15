@@ -1,0 +1,22 @@
+{
+  "name": "ts-node-starter",
+  "version": "1.0.0",
+  "description": "A template.",
+  "author": "Isac Fadoni <isacfadoni@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:prod": "APP_ENV=production yarn start",
+    "start:stag": "APP_ENV=staging yarn start",
+    "dev": "APP_ENV=development NODE_ENV=development ts-node-dev -r tsconfig-paths/register --respawn -T src",
+    "tscheck": "tsc --noEmit",
+    "lint": "yarn tscheck",
+    "start": "NODE_ENV=production ts-node -r tsconfig-paths/register -T src"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.0",
+    "ts-node": "^10.3.0",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.4"
+  }
+}

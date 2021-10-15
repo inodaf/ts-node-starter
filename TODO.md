@@ -12,4 +12,5 @@
 	- [] Coverage Reports
 	- [] Env Vars Support
 - [] TS Lint
+- [] Docker
 - [] CI

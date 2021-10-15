@@ -1,4 +1,4 @@
-import '@/infra/vendors/dotenv'
+import '@/infra/vendors/dotenv';
 
 console.log('Hello Starter!', {
   envs: {

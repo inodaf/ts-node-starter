@@ -1,3 +1,3 @@
-import { rest } from 'msw'
+import {rest} from 'msw';
 
-export const handlers = [rest.post("/test", null)]
+export const handlers = [rest.post('/test', null)];

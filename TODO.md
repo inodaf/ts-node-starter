@@ -15,5 +15,4 @@
 	- [x] SuperTest
 	- [x] MSW
 - [x] Lint - XO
-- [ ] Docker
-- [ ] CI
+- [x] CI

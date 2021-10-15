@@ -7,13 +7,13 @@
 	- [x] Production
 	- [x] Staging
 	- [x] Development
-- [ ] Test Support - AVA?
+- [x] Test Support - AVA?
 	- [x] TS Support
 	- [x] Resolve TS Paths
 	- [x] Coverage Reports
 	- [x] Env Vars Support
 	- [x] SuperTest
-	- [ ] MSW
+	- [x] MSW
 - [ ] Lint w XO
 - [ ] Docker
 - [ ] CI

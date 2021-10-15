@@ -1,4 +1,5 @@
 # Project Name
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
 ## Getting Started on Development
 There are simple steps and prerequisites to acomplish for runnning the project locally after cloning the project into your local machine.

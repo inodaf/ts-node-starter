@@ -8,10 +8,11 @@
 	- [x] Staging
 	- [x] Development
 - [ ] Test Support - AVA?
-	- [ ] TS Support
-	- [ ] Resolve TS Paths
-	- [ ] Coverage Reports
-	- [ ] Env Vars Support
+	- [x] TS Support
+	- [x] Resolve TS Paths
+	- [x] Coverage Reports
+	- [x] Env Vars Support
+	- [x] SuperTest
 	- [ ] MSW
 - [ ] Lint w XO
 - [ ] Docker

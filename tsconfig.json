@@ -18,6 +18,6 @@
       "@/config/*": ["./config/*"]
     }
   },
-  "include": ["./src/**/*.ts"],
-  "exclude": ["node_modules", "./tests/**/*.ts"]
+  "include": ["./src/**/*.ts", "./tests/**/*.ts"],
+  "exclude": ["node_modules"]
 }

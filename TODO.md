@@ -1,16 +1,16 @@
-- [] TypeScript Support
+- [x] TypeScript Support
 	- [x] Development
 	- [x] Build Dev & Prod
 	- [x] Paths
-	- [] VSCode Debugging
-- [] Env Vars
-	- [] Production
-	- [] Development
-- [] Jest Support
-	- [] TS Support
-	- [] Resolve TS Paths
-	- [] Coverage Reports
-	- [] Env Vars Support
-- [] TS Lint
-- [] Docker
-- [] CI
+	- [x] VSCode Debugging
+- [ ] Env Vars
+	- [ ] Production
+	- [ ] Development
+- [ ] Test Support - AVA?
+	- [ ] TS Support
+	- [ ] Resolve TS Paths
+	- [ ] Coverage Reports
+	- [ ] Env Vars Support
+- [ ] Lint w XO
+- [ ] Docker
+- [ ] CI

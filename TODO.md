@@ -1,7 +1,8 @@
 - [] TypeScript Support
-	- [] Development
-	- [] Build Dev & Prod
-	- [] Paths
+	- [x] Development
+	- [x] Build Dev & Prod
+	- [x] Paths
+	- [] VSCode Debugging
 - [] Env Vars
 	- [] Production
 	- [] Development

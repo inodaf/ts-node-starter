@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14.17.6'
+          cache: 'yarn'
       - name: 'Installing Dependencies'
         run: yarn
 
@@ -21,16 +22,26 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.6'
+          cache: 'yarn'
       - name: 'Typechecking'
-        run: yarn tscheck
+        run: yarn && yarn tscheck
 
   # Lint the source code.
   lint:
     needs: type-check
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.6'
+          cache: 'yarn'
       - name: 'Linting'
-        run: yarn lint
+        run: yarn && yarn lint
 
   # Runs the tests without
   # generating the Coverage report.
@@ -38,5 +49,10 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.6'
+          cache: 'yarn'
       - name: 'Testing'
-        run: yarn test
+        run: yarn && yarn test

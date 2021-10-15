@@ -12,6 +12,7 @@
 	- [ ] Resolve TS Paths
 	- [ ] Coverage Reports
 	- [ ] Env Vars Support
+	- [ ] MSW
 - [ ] Lint w XO
 - [ ] Docker
 - [ ] CI

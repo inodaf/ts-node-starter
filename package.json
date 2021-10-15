@@ -5,12 +5,12 @@
   "author": "Isac Fadoni <isacfadoni@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start:prod": "APP_ENV=production yarn start",
-    "start:stag": "APP_ENV=staging yarn start",
     "dev": "APP_ENV=development NODE_ENV=development ts-node-dev -r tsconfig-paths/register --respawn -T src",
     "tscheck": "tsc --noEmit",
     "lint": "yarn tscheck",
-    "start": "NODE_ENV=production ts-node -r tsconfig-paths/register -T src"
+    "start": "NODE_ENV=production ts-node -r tsconfig-paths/register -T src",
+    "start:prod": "APP_ENV=production yarn start",
+    "start:stag": "APP_ENV=staging yarn start"
   },
   "devDependencies": {
     "@types/node": "^16.11.0",

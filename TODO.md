@@ -3,9 +3,10 @@
 	- [x] Build Dev & Prod
 	- [x] Paths
 	- [x] VSCode Debugging
-- [ ] Env Vars
-	- [ ] Production
-	- [ ] Development
+- [x] Env Vars
+	- [x] Production
+	- [x] Staging
+	- [x] Development
 - [ ] Test Support - AVA?
 	- [ ] TS Support
 	- [ ] Resolve TS Paths

@@ -3,7 +3,7 @@
     "target": "es2020",
     "module": "commonjs",
     "moduleResolution": "node",
-    "rootDir": "./src/",
+    "rootDir": ".",
     "baseUrl": ".",
     "resolveJsonModule": true,
     "sourceMap": true,
@@ -14,7 +14,8 @@
     "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@/": ["./src/"]
+      "@/": ["./src/"],
+      "@/config/*": ["./config/*"]
     }
   },
   "include": ["./src/**/*.ts"],

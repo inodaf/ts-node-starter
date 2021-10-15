@@ -1,0 +1,7 @@
+# Directories
+/node_modules/
+/dist/
+
+# Environment Variables
+.env.*.local
+.env.local

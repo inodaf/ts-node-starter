@@ -1,0 +1,5 @@
+{
+  "[typescript]": {
+    "editor.defaultFormatter": "samverschueren.linter-xo"
+  }
+}

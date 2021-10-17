@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "APP_ENV=development ts-node-dev -r tsconfig-paths/register --respawn -T src",
     "tscheck": "tsc --noEmit",
-    "lint": "yarn tscheck && yarn xo",
+    "lint": "yarn xo",
     "lint:fix": "yarn xo --fix",
     "start": "ts-node -r tsconfig-paths/register -T src",
     "start:prod": "APP_ENV=production yarn start",

@@ -1,0 +1,58 @@
+name: check
+on: pull_request
+
+jobs:
+
+  # Setup Node.js and install
+  # project dependencies with yarn.
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.6'
+          cache: 'yarn'
+      - name: 'Installing Dependencies'
+        run: yarn
+
+  # Statically Typechecks the
+  # `.ts` source code.
+  type-check:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.6'
+          cache: 'yarn'
+      - name: 'Typechecking'
+        run: yarn && yarn tscheck
+
+  # Lint the source code.
+  lint:
+    needs: type-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.6'
+          cache: 'yarn'
+      - name: 'Linting'
+        run: yarn && yarn lint
+
+  # Runs the tests without
+  # generating the Coverage report.
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.6'
+          cache: 'yarn'
+      - name: 'Testing'
+        run: yarn && yarn test

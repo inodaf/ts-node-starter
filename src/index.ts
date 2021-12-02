@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import '@/configuration/envs';
 import '@/configuration/web/graphql';
 import '@/configuration/web/health-check';

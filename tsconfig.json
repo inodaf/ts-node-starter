@@ -9,9 +9,12 @@
     "sourceMap": true,
     "outDir": "./dist",
     "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
+    "lib": ["ES2021", "ESNext.AsyncIterable"],
     "paths": {
       "@/*": ["./src/*"],
       "@/": ["./src/"],

@@ -21,10 +21,13 @@
     "start:bundle:prod": "NODE_ENV=production APP_ENV=production node dist/src"
   },
   "dependencies": {
+    "class-validator": "^0.13.2",
     "dotenv-flow": "^3.2.0",
     "fastify": "^3.24.1",
-    "graphql": "^16.0.1",
-    "mercurius": "^8.11.2"
+    "mercurius": "^8.11.2",
+    "graphql": "^15.5.1",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
   },
   "devDependencies": {
     "@types/dotenv-flow": "^3.2.0",

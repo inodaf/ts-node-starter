@@ -1,5 +1,5 @@
 import mercurius from 'mercurius';
-import {app} from '.';
+import {app} from './server';
 
 void app.register(mercurius, {
   graphiql: process.env.GRAPHIQL_ENABLED === 'true',

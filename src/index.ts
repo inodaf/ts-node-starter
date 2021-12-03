@@ -8,7 +8,7 @@ console.log('Hello Starter!', {
   envs: {
     node: process.env.NODE_ENV,
     app: process.env.APP_ENV,
-    graphiql: process.env.GRAPHIQL_ENABLED,
+    graphiql: process.env.GRAPHQL_PLAYGROUND_ENABLED,
   },
 });
 

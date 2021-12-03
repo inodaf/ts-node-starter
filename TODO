@@ -2,3 +2,4 @@
 - [x] TypeGraphQL
 - [ ] Dependency Injection with `tsyringe`
 - [ ] Prisma Client as ORM
+- [ ] Security modules

@@ -7,6 +7,10 @@ const schema = joi.object({
   NODE_ENV: joi.string().required(),
   GRAPHQL_PATH: joi.string().required(),
   GRAPHQL_PLAYGROUND_ENABLED: joi.boolean().required(),
+  CORS_ORIGIN: joi.string().required(),
+  CORS_CREDENTIALS: joi.boolean().required(),
+  CORS_METHODS: joi.string().required(),
+  CORS_ALLOWED_HEADERS: joi.string().required(),
 });
 
 const { parsed } = config({

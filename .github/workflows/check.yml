@@ -32,7 +32,7 @@ jobs:
 
   # Lint the source code.
   lint:
-    needs: type-check
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -46,7 +46,7 @@ jobs:
   # Runs the tests without
   # generating the Coverage report.
   test:
-    needs: lint
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

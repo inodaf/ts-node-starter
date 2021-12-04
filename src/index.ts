@@ -1,10 +1,10 @@
-import 'reflect-metadata';
-import '@/configuration/envs';
-import '@/configuration/web/graphql';
-import '@/configuration/web/health-check';
-import {start} from '@/configuration/web/server';
+import "reflect-metadata";
+import "@/configuration/envs";
+import "@/configuration/web/graphql";
+import "@/configuration/web/health-check";
+import { start } from "@/configuration/web/server";
 
-console.log('Hello Starter!', {
+console.log("Hello Starter!", {
   envs: {
     node: process.env.NODE_ENV,
     app: process.env.APP_ENV,

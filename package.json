@@ -9,8 +9,10 @@
   "scripts": {
     "dev": "APP_ENV=development ts-node-dev -r tsconfig-paths/register --respawn -T src",
     "tscheck": "tsc --noEmit",
-    "lint": "yarn xo",
-    "lint:fix": "yarn xo --fix",
+    "fmt:check": "prettier --check '**/*.{ts,json}'",
+    "lint:check": "eslint . --ext .ts,.json",
+    "lint": "eslint . --ext .ts,.json --fix",
+    "fmt": "prettier --write '**/*.{ts,json}'",
     "start": "ts-node -r tsconfig-paths/register -T src",
     "start:prod": "APP_ENV=production yarn start",
     "start:stag": "APP_ENV=staging yarn start",
@@ -34,16 +36,20 @@
   "devDependencies": {
     "@types/dotenv-flow": "^3.2.0",
     "@types/node": "^16.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
     "ava": "^3.15.0",
     "c8": "^7.10.0",
+    "eslint": "^8.4.0",
+    "eslint-config-prettier": "^8.3.0",
     "msw": "^0.35.0",
+    "prettier": "^2.5.1",
     "supertest": "^6.1.6",
     "ts-node": "^10.3.0",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
     "tscpaths": "^0.0.9",
-    "typescript": "^4.4.4",
-    "xo": "^0.45.0"
+    "typescript": "^4.4.4"
   },
   "ava": {
     "failFast": true,
@@ -63,17 +69,20 @@
       "dotenv-flow/config"
     ]
   },
-  "xo": {
-    "space": true,
-    "envs": [
-      "node"
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "ignorePatterns": [
+      "node_modules",
+      "dist"
     ],
-    "rules": {
-      "new-cap": "off",
-      "import/extensions": "off",
-      "node/prefer-global/process": "off",
-      "import/no-unassigned-import": "off",
-      "@typescript-eslint/naming-convention": "off"
-    }
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ]
   }
 }

@@ -28,7 +28,7 @@ jobs:
           node-version: '16.13.0'
           cache: 'yarn'
       - name: 'Typechecking'
-        run: yarn && yarn tscheck
+        run: yarn tscheck
 
   # Lint the source code.
   lint:
@@ -41,7 +41,7 @@ jobs:
           node-version: '16.13.0'
           cache: 'yarn'
       - name: 'Linting'
-        run: yarn && yarn lint
+        run: yarn lint
 
   # Runs the tests without
   # generating the Coverage report.
@@ -55,4 +55,4 @@ jobs:
           node-version: '16.13.0'
           cache: 'yarn'
       - name: 'Testing'
-        run: yarn && yarn test
+        run: yarn test

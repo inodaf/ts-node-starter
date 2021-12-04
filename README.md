@@ -1,5 +1,6 @@
 # TypeScript Node Starter
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
+[![Formatting with Prettier](https://img.shields.io/badge/format-prettier-brightgreen)](https://prettier.io/)
+[![Linitng with TypeScript ESLint](https://img.shields.io/badge/lint-typescript--eslint-brightgreen)](https://typescript-eslint.io/)
 
 ## Getting Started on Development
 There are simple steps and prerequisites to acomplish for runnning the project locally after creating a repository using this template.

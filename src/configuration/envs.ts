@@ -1,6 +1,6 @@
-import {resolve} from 'node:path';
-import {config} from 'dotenv-flow';
-import joi from 'joi';
+import { resolve } from "node:path";
+import { config } from "dotenv-flow";
+import joi from "joi";
 
 const schema = joi.object({
   APP_ENV: joi.string().required(),
@@ -9,30 +9,37 @@ const schema = joi.object({
   GRAPHQL_PLAYGROUND_ENABLED: joi.boolean().required(),
 });
 
-const {parsed} = config({
+const { parsed } = config({
   node_env: process.env.APP_ENV,
-  path: resolve(process.cwd(), './config/envs'),
+  path: resolve(process.cwd(), "./config/envs"),
 });
 
-const {error} = schema.validate(
-  Object.assign(parsed, {APP_ENV: process.env.APP_ENV}),
+const { error } = schema.validate(
+  Object.assign(parsed, { APP_ENV: process.env.APP_ENV })
 );
 
 if (error) {
-  const requiredEnvs = error.details.filter(({type}) => type === 'any.required');
-  const unknownEnvs = error.details.filter(({type}) => type === 'object.unknown');
+  const requiredEnvs = error.details.filter(
+    ({ type }) => type === "any.required"
+  );
+  const unknownEnvs = error.details.filter(
+    ({ type }) => type === "object.unknown"
+  );
 
   const missingEnvs = [
-    ...unknownEnvs.map(({context}) => context?.key),
-    ...requiredEnvs.map(({context}) => context?.key),
+    ...unknownEnvs.map(({ context }) => context?.key),
+    ...requiredEnvs.map(({ context }) => context?.key),
   ];
 
   if (unknownEnvs.length > 0) {
-    console.log('You probably forgot to map a new Env into `envs.ts`:', missingEnvs);
+    console.log(
+      "You probably forgot to map a new Env into `envs.ts`:",
+      missingEnvs
+    );
   }
 
   if (requiredEnvs.length > 0) {
-    console.log('You probably forgot to define a required Env:', missingEnvs);
+    console.log("You probably forgot to define a required Env:", missingEnvs);
   }
 
   throw new TypeError(error.message);

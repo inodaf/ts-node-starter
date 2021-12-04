@@ -1,5 +1,5 @@
-- [x] GraphQL Server with Fastify/Mercurius
-- [x] TypeGraphQL
 - [ ] Dependency Injection with `tsyringe`
 - [ ] Prisma Client as ORM
-- [ ] Security modules
+- [x] GraphQL Server with Fastify/Mercurius
+- [x] Security modules
+- [x] TypeGraphQL

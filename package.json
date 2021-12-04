@@ -27,6 +27,8 @@
     "class-validator": "^0.13.2",
     "dotenv-flow": "^3.2.0",
     "fastify": "^3.24.1",
+    "fastify-cors": "^6.0.2",
+    "fastify-helmet": "^5.3.2",
     "graphql": "^15.5.1",
     "joi": "^17.5.0",
     "mercurius": "^8.11.2",

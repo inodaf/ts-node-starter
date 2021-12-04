@@ -4,15 +4,11 @@ import {buildSchemaSync} from 'type-graphql';
 import {app} from './server';
 import {resolvers} from '@/modules/resolvers';
 
-const schema = buildSchemaSync({
-  resolvers,
-});
-
 void app.register(mercurius, {
-  graphiql: false,
   ide: false,
+  graphiql: false,
   path: process.env.GRAPHQL_PATH,
-  schema,
+  schema: buildSchemaSync({resolvers}),
 });
 
 if (process.env.GRAPHQL_PLAYGROUND_ENABLED === 'true') {

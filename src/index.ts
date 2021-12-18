@@ -1,9 +1,9 @@
 import "reflect-metadata";
-import "@/configuration/envs";
-import "@/configuration/web/security";
-import "@/configuration/web/graphql";
-import "@/configuration/web/health-check";
-import { start } from "@/configuration/web/server";
+import "@/configurations/envs";
+import "@/configurations/web/security";
+import "@/configurations/web/graphql";
+import "@/configurations/web/health-check";
+import { start } from "@/configurations/web/server";
 
 console.log("Hello Starter!", {
   envs: {

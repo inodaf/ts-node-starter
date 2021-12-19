@@ -67,7 +67,8 @@
     "require": [
       "tsconfig-paths/register",
       "ts-node/register",
-      "dotenv-flow/config"
+      "dotenv-flow/config",
+      "./config/mocks/setup-tests.ts"
     ]
   },
   "eslintConfig": {

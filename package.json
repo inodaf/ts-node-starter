@@ -16,8 +16,8 @@
     "start": "ts-node -r tsconfig-paths/register -T src",
     "start:prod": "APP_ENV=production yarn start",
     "start:stag": "APP_ENV=staging yarn start",
-    "test": "ava",
-    "test:w": "ava -w",
+    "test": "clear && ava",
+    "test:w": "clear && ava -w",
     "test:cov": "c8 ava",
     "bundle:prod": "APP_ENV=production tsc -p tsconfig.build.json && tscpaths -p tsconfig.build.json -s ./src/ -o ./dist/src",
     "start:bundle:prod": "NODE_ENV=production APP_ENV=production node dist/src"
@@ -46,7 +46,6 @@
     "eslint-config-prettier": "^8.3.0",
     "msw": "^0.35.0",
     "prettier": "^2.5.1",
-    "supertest": "^6.1.6",
     "ts-node": "^10.3.0",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",

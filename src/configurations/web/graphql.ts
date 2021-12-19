@@ -1,8 +1,8 @@
 import mercurius from "mercurius";
 import altair from "altair-fastify-plugin";
 import { buildSchemaSync } from "type-graphql";
-import { app } from "./server";
 import { resolvers } from "@/modules/resolvers";
+import { app } from "./server";
 
 void app.register(mercurius, {
   ide: false,

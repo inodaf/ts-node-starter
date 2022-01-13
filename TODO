@@ -1,5 +1,5 @@
 - [ ] Dependency Injection with `tsyringe`
-- [ ] Prisma Client as ORM
+- [x] Prisma Client as ORM
 - [x] GraphQL Server with Fastify/Mercurius
 - [x] Security modules
 - [x] TypeGraphQL

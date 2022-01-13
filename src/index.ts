@@ -13,4 +13,4 @@ console.log("Hello Starter!", {
   },
 });
 
-void start();
+start();

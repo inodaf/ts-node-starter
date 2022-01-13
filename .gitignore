@@ -6,3 +6,5 @@
 # Environment Variables
 .env.*.local
 .env.local
+/prisma/.env
+/.env

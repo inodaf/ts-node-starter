@@ -21,6 +21,6 @@
       "@/config/*": ["./config/*"]
     }
   },
-  "include": ["./src/**/*.ts", "./tests/**/*.ts"],
+  "include": ["./src/**/*.ts", "./tests/**/*.ts", "./.types/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

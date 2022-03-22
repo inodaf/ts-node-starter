@@ -5,6 +5,7 @@ import joi from "joi";
 const schema = joi.object({
   APP_ENV: joi.string().required(),
   NODE_ENV: joi.string().required(),
+  DATABASE_URL: joi.string().required(),
   GRAPHQL_PATH: joi.string().required(),
   GRAPHQL_PLAYGROUND_ENABLED: joi.boolean().required(),
   CORS_ORIGIN: joi.string().required(),

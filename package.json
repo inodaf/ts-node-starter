@@ -23,6 +23,7 @@
     "start:bundle:prod": "NODE_ENV=production APP_ENV=production node dist/src"
   },
   "dependencies": {
+    "@prisma/client": "^3.7.0",
     "altair-fastify-plugin": "^4.2.1",
     "class-validator": "^0.13.2",
     "dotenv-flow": "^3.2.0",
@@ -46,7 +47,7 @@
     "eslint-config-prettier": "^8.3.0",
     "msw": "^0.35.0",
     "prettier": "^2.5.1",
-    "supertest": "^6.1.6",
+    "prisma": "^3.7.0",
     "ts-node": "^10.3.0",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
@@ -68,7 +69,8 @@
     "require": [
       "tsconfig-paths/register",
       "ts-node/register/transpile-only",
-      "dotenv-flow/config"
+      "dotenv-flow/config",
+      "./config/mocks/setup-tests.ts"
     ]
   },
   "eslintConfig": {

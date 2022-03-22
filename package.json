@@ -67,7 +67,7 @@
     },
     "require": [
       "tsconfig-paths/register",
-      "ts-node/register",
+      "ts-node/register/transpile-only",
       "dotenv-flow/config"
     ]
   },

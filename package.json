@@ -88,5 +88,10 @@
       "plugin:@typescript-eslint/recommended",
       "prettier"
     ]
-  }
+  },
+  "eslintIgnore": [
+    ".vscode",
+    "coverage",
+    "dist"
+  ]
 }

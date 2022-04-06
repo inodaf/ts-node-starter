@@ -1,10 +1,17 @@
+import type { NonEmptyArray } from "type-graphql";
+
+import path from "node:path";
 import mercurius from "mercurius";
-import altair from "altair-fastify-plugin";
 import { buildSchemaSync } from "type-graphql";
-import { resolvers } from "@/modules/resolvers";
+import altair from "altair-fastify-plugin";
+
 import { app } from "./server";
 
-void app.register(mercurius, {
+const resolvers: NonEmptyArray<string> = [
+  path.join(__dirname, "../../modules/**/views/*.resolver.ts"),
+];
+
+app.register(mercurius, {
   ide: false,
   graphiql: false,
   path: process.env.GRAPHQL_PATH,
@@ -12,7 +19,7 @@ void app.register(mercurius, {
 });
 
 if (process.env.GRAPHQL_PLAYGROUND_ENABLED === "true") {
-  void app.register(altair, {
+  app.register(altair, {
     path: "/altair",
     baseURL: "/altair/",
     endpointURL: process.env.GRAPHQL_PATH,

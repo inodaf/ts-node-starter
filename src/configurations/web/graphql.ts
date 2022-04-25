@@ -8,7 +8,7 @@ import altair from "altair-fastify-plugin";
 import { app } from "./server";
 
 const resolvers: NonEmptyArray<string> = [
-  path.join(__dirname, "../../modules/**/views/*.resolver.ts"),
+  path.join(__dirname, "../../modules/**/views/*.resolver.{ts,js}"),
 ];
 
 app.register(mercurius, {

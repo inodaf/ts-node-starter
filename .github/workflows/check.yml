@@ -8,8 +8,8 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16.14.2'
           cache: 'yarn'
@@ -22,8 +22,8 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16.14.2'
           cache: 'yarn'
@@ -35,21 +35,21 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16.14.2'
           cache: 'yarn'
       - name: 'Check Linting'
         run: yarn && yarn lint:check
 
-  # Check source code code formatting issues.
+  # Check code formatting issues.
   format:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16.14.2'
           cache: 'yarn'
@@ -57,13 +57,13 @@ jobs:
         run: yarn && yarn fmt:check
 
   # Runs the tests without
-  # generating the Coverage report.
+  # generating the coverage report.
   test:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16.14.2'
           cache: 'yarn'

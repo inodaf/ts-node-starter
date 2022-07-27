@@ -34,6 +34,7 @@ jobs:
           node-version: "16.16.0"
           cache: "pnpm"
       - run: pnpm install
+      - run: pnpm prisma generate
       - name: 'Typechecking'
         run: pnpm tscheck
 

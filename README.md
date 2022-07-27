@@ -1,46 +1,132 @@
-# TypeScript Node Starter
-[![Formatting with Prettier](https://img.shields.io/badge/format-prettier-brightgreen)](https://prettier.io/)
-[![Linitng with TypeScript ESLint](https://img.shields.io/badge/lint-typescript--eslint-brightgreen)](https://typescript-eslint.io/)
+<h1>
+  <div>
+    GraphQL Starter
+    <div>
+      <img src="https://img.shields.io/badge/Web%20Framework-Fastify-white.svg" />
+      <img src="https://img.shields.io/badge/ORM-Prisma-blueviolet.svg" />
+      <img src="https://img.shields.io/badge/Testing-AVA-pink.svg" />
+      <img src="https://img.shields.io/badge/Format-Prettier-coral.svg" />
+      <img src="https://img.shields.io/badge/Linting-TypeScript_ESLint-blue.svg" />
+      <img src="https://img.shields.io/badge/Node.js-v16.16.0-gren.svg" />
+    </div>
+  </div>
+</h1>
 
-## Getting Started on Development
-There are simple steps and prerequisites to acomplish for runnning the project locally after creating a repository using this template.
+Starting a new **Node.js Backend** project needs to be easy and well organized. **GraphQL Starter** provides a fully featured environment with **[Mercurius GraphQL](https://mercurius.dev/#/)** + **[Fastify](https://fastify.io)** + **Clean Architecture** structure for letting you focus on code delivery without compromising best practices.
 
-### Prerequisites
-- yarn - Our prefered package manager
-- Node.js (see *.nvmrc*) - Use **nvm** to install: `nvm use`
+## Getting Started
 
-### Installing Dependencies
-Use **`yarn`** for install and manage dependencies instead of `npm`, and always commit the `yarn.lock` file.
+Base commands for develop, test and build.
+
+**Requirements**
+
+- Node.js Toolchain Manager: [Volta](https://volta.sh)
+- Package Manager: [pnpm](https://pnpm.io/installation)
+
+**Prepare Development**
+
+A **Makefile** is used to orchestrate the installation of required tooling and dependencies. Open your Terminal app and run the command bellow, then you are able to get started.
+
 ```sh
-yarn
+make
 ```
 
-### Development Server
-There is a simple command to lift the dev server. See the `package.json` file for other useful scripts. This will run the program entrypoint using the `ts-node-dev` package.
+> **Note**
+>
+> In case of failure, head to the [**Troubleshooting**](#troubleshooting) section below for alternatives.
+
+
+## Development Server
+
+The next command will spawn the Dev Server and load the Env Vars from `.env`, `.env.development` and `.env.local`.
+
 ```sh
-yarn dev
+# spawns the Dev Server at http://localhost:3000
+pnpm dev
 ```
 
-### Production Server
-There are two ways to run the production server.
+## Testing
 
-#### Build
+There are **Integration** and **Unit** tests available and the matching test environment variables (`.env.test`) are automatically loaded.
+
 ```sh
-# Generates distributables with Production bindings.
-yarn bundle:prod
-
-# Starts server using the dist with Production bindings.
-yarn start:bundle:prod
+# Unit & Integration Tests
+pnpm test     # run tests without watch
+pnpm test:w   # run tests with watch
+pnpm test:c   # run tests with coverage
+pnpm t        # alias for `pnpm test`
 ```
 
-#### TSNode
-As we use `ts-node` for running our TypeScript source, we can skip the build that transpiles all the source to plain JavaScript. This is all handled by `ts-node` and the only thing we need is to define our Env Vars.
+## Linting & Code Formatting
 
-> **Perf Note**: This process has a higher memory consumption for starting the server. You might find issues when using it in a low-resource machine with 512MB of RAM.
+We split the process into Check and Fix commands.
+
 ```sh
-# Starts the program with Production bindings.
-yarn start:prod
-
-# Starts the program with Staging bindings.
-yarn start:stag
+# Linting
+pnpm lint:check # checks linting without fixing (useful for CI)
+pnpm lint       # checks linting and fixes issues
 ```
+
+```sh
+# Code Formatting
+pnpm fmt:check # checks formatting without fixing (useful for CI)
+pnpm fmt       # checks formatting and fixes issues
+```
+
+---
+
+## Building
+Builds are separated by environments: Production and Staging. For both environments the `NODE_ENV` is set to `production`.
+
+**Production**
+
+Refer to `./config/envs/.env.production` for the environment variables.
+
+```sh
+pnpm build:prod # builds with production bindings
+pnpm start:build:prod # starts the built app with production bindings
+```
+
+**Staging**
+
+Refer to `./config/envs/.env.staging` for the environment variables.
+
+```sh
+pnpm build:stag # builds with staging bindings
+pnpm start:build:stag # starts the built app with staging bindings
+```
+
+## Alternative to Build
+
+Alternatively we can use `ts-node` for running our TypeScript source without generating distributable files.
+
+> **Note**:
+>
+> This process has a higher memory consumption for starting the server. You might find **issues** when using it in a **low-resource machine** with 512MB of RAM.
+```sh
+yarn start:prod # Starts the program with Production bindings.
+yarn start:stag # Starts the program with Staging bindings.
+```
+
+---
+
+## Cleanup
+
+Whenever you need a fresh start in case something is going wrong, you can leverage handy cleanup commands.
+
+```sh
+make clean # remove caches and temp files
+make clean_hard # same as above but also remove `node_modules`
+```
+
+---
+
+## Troubleshooting
+
+**Fail while using the `make` command:** Behind the scenes this command depends on `cURL` for downloading Volta and pnpm binaries. Try installing cURL then run the command again. Also, the commands from Makefile are **not supported on Windows** machines so the alternative is manually installing the required dependencies.
+
+---
+
+## License
+
+Altough this **template** itself is MIT licensed, if needed, you must change the license after creating your project.

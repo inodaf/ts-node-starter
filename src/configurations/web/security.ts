@@ -1,5 +1,5 @@
-import helmet from "fastify-helmet";
-import cors from "fastify-cors";
+import helmet from "@fastify/helmet";
+import cors from "@fastify/cors";
 import { app } from "./server";
 
 app.register(helmet, {

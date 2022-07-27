@@ -4,17 +4,20 @@ on: pull_request
 jobs:
 
   # Setup Node.js and install
-  # project dependencies with yarn.
+  # project dependencies with pnpm.
   setup:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.14.2'
-          cache: 'yarn'
-      - name: 'Installing Dependencies'
-        run: yarn
+          node-version: "16.16.0"
+          cache: "pnpm"
+      - name: "Installing Dependencies"
+        run: pnpm install
 
   # Statically Typechecks the
   # `.ts` source code.
@@ -23,12 +26,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.14.2'
-          cache: 'yarn'
+          node-version: "16.16.0"
+          cache: "pnpm"
+      - run: pnpm install
+      - run: pnpm prisma generate
       - name: 'Typechecking'
-        run: yarn && yarn tscheck
+        run: pnpm tscheck
 
   # Check source code for lints.
   lint:
@@ -36,12 +44,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.14.2'
-          cache: 'yarn'
-      - name: 'Check Linting'
-        run: yarn && yarn lint:check
+          node-version: "16.16.0"
+          cache: "pnpm"
+      - run: pnpm install
+      - name: "Check Linting"
+        run: pnpm lint:check
 
   # Check code formatting issues.
   format:
@@ -49,12 +61,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.14.2'
-          cache: 'yarn'
-      - name: 'Check Format'
-        run: yarn && yarn fmt:check
+          node-version: "16.16.0"
+          cache: "pnpm"
+      - run: pnpm install
+      - name: "Check Format"
+        run: pnpm fmt:check
 
   # Runs the tests without
   # generating the coverage report.
@@ -63,9 +79,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.14.2'
-          cache: 'yarn'
-      - name: 'Testing'
-        run: yarn && yarn test
+          node-version: "16.16.0"
+          cache: "pnpm"
+      - run: pnpm install
+      - name: "Testing"
+        run: pnpm test

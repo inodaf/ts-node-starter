@@ -20,7 +20,7 @@ const { parsed } = config({
 });
 
 const { error } = schema.validate(
-  Object.assign(parsed, { APP_ENV: process.env.APP_ENV })
+  Object.assign(parsed as object, { APP_ENV: process.env.APP_ENV })
 );
 
 if (error) {

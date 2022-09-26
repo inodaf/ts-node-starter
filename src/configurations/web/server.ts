@@ -6,7 +6,7 @@ export const app = Fastify({ logger: true });
 export const start = async () => {
   try {
     // await prisma.$connect();
-    await app.listen({ port: 3000 });
+    await app.listen({ port: 3000, host: '0.0.0.0' });
   } catch (error: unknown) {
     app.log.error(error);
     throw new Error("Failed to start Fastify Server");

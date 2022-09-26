@@ -3,7 +3,7 @@
   "description": "A template.",
   "version": "1.0.0",
   "engines": {
-    "node": "v16.16.0"
+    "node": "v16.17.1"
   },
   "license": "MIT",
   "scripts": {
@@ -100,6 +100,6 @@
     ]
   },
   "volta": {
-    "node": "16.16.0"
+    "node": "16.17.1"
   }
 }

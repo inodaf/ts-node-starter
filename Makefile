@@ -8,6 +8,7 @@ node_modules: package.json pnpm-lock.yaml
 	@echo '🧱 Setting up project...'
 	@volta fetch node
 	@pnpm install
+	@cp .env.sample .env
 	@pnpm prisma generate
 
 clean:

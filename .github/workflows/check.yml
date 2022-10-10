@@ -88,4 +88,4 @@ jobs:
           cache: "pnpm"
       - run: pnpm install
       - name: "Testing"
-        run: pnpm test
+        run: pnpm run test --tap

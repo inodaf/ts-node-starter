@@ -38,11 +38,10 @@ make
 
 ## Development Server
 
-The next command will spawn the Dev Server and load the Env Vars from `.env`, `.env.development` and `.env.local`.
+The next command will spawn the Dev Server and load the Environment Variables from `.env` located at the _root_ directory.
 
 ```sh
-# spawns the Dev Server at http://localhost:3000
-pnpm dev
+pnpm dev # spawns the Dev Server at http://localhost:3000
 ```
 
 ## Testing
@@ -75,30 +74,63 @@ pnpm fmt       # checks formatting and fixes issues
 
 ---
 
+## Environment Variables
+
+Sensitive and secret data can be defined using Environment Variables. An `.env` file at the root directory can be used for storing these data. As per security `.env` files cannot be tracked through version control systems.
+
+## Application Properties
+Also known as _Configuration_, application properties let you define environment-specific, static configuration for your system. They don't behave like Environment Variables -- which can include sensitive and per-deploy values --.
+
+There are the `base`, `dev`, `production` and `staging` properties but it's possible to add many others, as they are named based on the value of `APP_ENV` environment variable. The properties from `base` holds all the default configuration that applies for all environments. Overriding these values is made possible by using the environment specific property file, like `dev`.
+
+In short, if `APP_ENV` is set to `production`, `base` and `production` property files will be loaded and merged. Then they can be accessed through the application as bellow:
+
+```ts
+import { properties } from '@/configurations/properties'
+
+console.log(properties.graphQL.path)
+```
+
+---
+
+## Building with Docker
+A production-ready image can be built from the _Dockerfile_. It generates light-weight images as it relies on Docker's multi-stage builds. To build an image refer to the Docker documentation or follow the steps below:
+
+```sh
+docker build -t <yourorg>/<projectname> . # builds the image
+```
+You can attach the build step into your CI/CD workflow for publishing the image into your own Image Registry service (Amazon ECR) and deploy your application.
+
+> **Note**
+>
+> When running the image in a container, you will need to provide all the environment variables/secrets required by the application. Refer to container logs to get the current application status.
+
+
 ## Building
 Builds are separated by environments: Production and Staging. For both environments the `NODE_ENV` is set to `production`.
 
 **Production**
 
-Refer to `./config/envs/.env.production` for the environment variables.
-
 ```sh
-pnpm build:prod # builds with production bindings
+pnpm build:prod       # builds with production bindings
 pnpm start:build:prod # starts the built app with production bindings
 ```
 
+_Refer to `./src/configurations/properties/production.ts` for the application properties._
+
 **Staging**
 
-Refer to `./config/envs/.env.staging` for the environment variables.
-
 ```sh
-pnpm build:stag # builds with staging bindings
+pnpm build:stag       # builds with staging bindings
 pnpm start:build:stag # starts the built app with staging bindings
 ```
 
+_Refer to `./src/configurations/properties/staging.ts` for the staging application properties._
+
+
 ## Alternative to Build
 
-Alternatively we can use `ts-node` for running our TypeScript source without generating distributable files.
+Alternatively `ts-node` can be used for running our TypeScript source without generating distributable files.
 
 > **Note**:
 >
@@ -115,7 +147,7 @@ yarn start:stag # Starts the program with Staging bindings.
 Whenever you need a fresh start in case something is going wrong, you can leverage handy cleanup commands.
 
 ```sh
-make clean # remove caches and temp files
+make clean      # remove caches and temp files
 make clean_hard # same as above but also remove `node_modules`
 ```
 

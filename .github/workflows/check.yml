@@ -87,5 +87,7 @@ jobs:
           node-version: "16.17.1"
           cache: "pnpm"
       - run: pnpm install
+      - name: "Generating Prisma Client"
+        run: pnpm prisma generate
       - name: "Testing"
         run: pnpm run test --tap

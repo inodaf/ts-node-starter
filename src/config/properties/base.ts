@@ -1,8 +1,13 @@
-import type { CORS, GraphQL, Properties, Server } from "@/types/properties.schema";
+import type {
+  CORS,
+  GraphQL,
+  Properties,
+  Server,
+} from "@/types/properties.schema";
 
 const server: Server = {
   port: 3000,
-  host: '0.0.0.0',
+  host: "0.0.0.0",
 };
 
 const graphQL: GraphQL = {

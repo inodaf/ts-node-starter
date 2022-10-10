@@ -1,6 +1,6 @@
 import helmet from "@fastify/helmet";
 import cors from "@fastify/cors";
-import { properties } from "@/configurations/properties";
+import { properties } from "@/config/properties";
 import { app } from "./server";
 
 app.register(helmet, {

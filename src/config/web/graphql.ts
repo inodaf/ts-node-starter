@@ -5,7 +5,7 @@ import mercurius from "mercurius";
 import { buildSchemaSync } from "type-graphql";
 import altair from "altair-fastify-plugin";
 
-import { properties } from "@/configurations/properties";
+import { properties } from "@/config/properties";
 import { app } from "./server";
 
 const resolvers: NonEmptyArray<string> = [

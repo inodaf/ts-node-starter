@@ -86,7 +86,7 @@ There are the `base`, `dev`, `production` and `staging` properties but it's poss
 In short, if `APP_ENV` is set to `production`, `base` and `production` property files will be loaded and merged. Then they can be accessed through the application as bellow:
 
 ```ts
-import { properties } from '@/configurations/properties'
+import { properties } from '@/config/properties'
 
 console.log(properties.graphQL.path)
 ```

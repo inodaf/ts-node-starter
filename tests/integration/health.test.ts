@@ -1,8 +1,8 @@
 import test from "ava";
-import { app } from "@/configurations/web/server";
+import { app } from "@/config/web/server";
 
 // Add Health Check route.
-import "@/configurations/web/health-check";
+import "@/config/web/health-check";
 
 test('GET at "/health", returns "ok" and "env"', async (t) => {
   const response = await app.inject().get("/health");

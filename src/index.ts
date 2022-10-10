@@ -1,10 +1,10 @@
 import "reflect-metadata";
-import "@/configurations/envs";
-import "@/configurations/web/security";
-import "@/configurations/web/graphql";
-import "@/configurations/web/health-check";
-import { properties } from "@/configurations/properties";
-import { start } from "@/configurations/web/server";
+import "@/config/envs";
+import "@/config/web/security";
+import "@/config/web/graphql";
+import "@/config/web/health-check";
+import { properties } from "@/config/properties";
+import { start } from "@/config/web/server";
 
 console.log("🎉 Hello Starter!", {
   envs: {

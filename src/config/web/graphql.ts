@@ -5,6 +5,7 @@ import mercurius from "mercurius";
 import { buildSchemaSync } from "type-graphql";
 import altair from "altair-fastify-plugin";
 
+import { properties } from "@/config/properties";
 import { app } from "./server";
 
 const resolvers: NonEmptyArray<string> = [
@@ -14,14 +15,14 @@ const resolvers: NonEmptyArray<string> = [
 app.register(mercurius, {
   ide: false,
   graphiql: false,
-  path: process.env.GRAPHQL_PATH,
+  path: properties.graphQL.path,
   schema: buildSchemaSync({ resolvers }),
 });
 
-if (process.env.GRAPHQL_PLAYGROUND_ENABLED === "true") {
+if (properties.graphQL.playgroundEnabled) {
   app.register(altair, {
     path: "/altair",
     baseURL: "/altair/",
-    endpointURL: process.env.GRAPHQL_PATH,
+    endpointURL: properties.graphQL.path,
   });
 }

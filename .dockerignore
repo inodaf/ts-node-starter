@@ -1,0 +1,9 @@
+.vscode
+.github
+node_modules
+tests
+Makefile
+Dockerfile
+LICENSE
+*.md
+*.env

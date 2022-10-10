@@ -1,5 +1,6 @@
 import helmet from "@fastify/helmet";
 import cors from "@fastify/cors";
+import { properties } from "@/config/properties";
 import { app } from "./server";
 
 app.register(helmet, {
@@ -15,8 +16,8 @@ app.register(helmet, {
 });
 
 app.register(cors, {
-  origin: process.env.CORS_ORIGIN,
-  credentials: process.env.CORS_CREDENTIALS === "true",
-  allowedHeaders: process.env.CORS_ALLOWED_HEADERS?.split(","),
-  methods: process.env.CORS_METHODS?.split(","),
+  origin: properties.cors.origin,
+  methods: properties.cors.methods,
+  credentials: properties.cors.credentials,
+  allowedHeaders: properties.cors.allowedHeaders,
 });

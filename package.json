@@ -9,10 +9,10 @@
   "scripts": {
     "dev": "NODE_ENV=development APP_ENV=dev ts-node-dev -r tsconfig-paths/register --respawn -T src",
     "tscheck": "tsc --noEmit",
-    "fmt:check": "prettier --check '**/*.{ts,json}'",
+    "fmt:check": "prettier --check '(src|tests)/**/*.{ts,json}'",
     "lint:check": "eslint . --ext .ts,.json",
     "lint": "eslint . --ext .ts,.json --fix",
-    "fmt": "prettier --write '**/*.{ts,json}'",
+    "fmt": "prettier --write '(src|tests)/**/*.{ts,json}'",
     "start": "ts-node -r tsconfig-paths/register -T src",
     "start:prod": "APP_ENV=production pnpm start",
     "start:stag": "APP_ENV=staging pnpm start",

@@ -1,4 +1,4 @@
-# BEGIN:BUILD
+# BEGIN:BUILD_STAGE
 FROM node:16.17-alpine3.15 as builder
 WORKDIR /build/
 
@@ -9,12 +9,15 @@ RUN npm install -g pnpm
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
+# Generate Prisma Client
+RUN pnpm prisma generate
+
 # Build Project
 COPY . .
 RUN pnpm build:prod
-# END:BUILD
+# END:BUILD_STAGE
 
-# BEGIN:RUN
+# BEGIN:RUN_STAGE
 FROM node:16.17-alpine3.15
 WORKDIR /app/
 
@@ -23,7 +26,6 @@ RUN npm install -g pnpm
 
 # Copy output from `builder` stage
 COPY --from=builder /build/dist ./dist/
-COPY --from=builder /build/config ./config/
 COPY --from=builder /build/prisma ./prisma/
 COPY package.json pnpm-lock.yaml ./
 
@@ -33,4 +35,4 @@ RUN pnpm install --frozen-lockfile --prod
 # Run Project
 EXPOSE 3000
 ENTRYPOINT [ "pnpm", "start:build:prod" ]
-# END:RUN
+# END:RUN_STAGE

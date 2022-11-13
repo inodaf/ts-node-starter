@@ -6,7 +6,7 @@
       "request": "launch",
       "name": "Launch Program",
       "env": {
-        "APP_ENV": "development",
+        "APP_ENV": "dev",
         "NODE_ENV": "development"
       },
       "runtimeArgs": [

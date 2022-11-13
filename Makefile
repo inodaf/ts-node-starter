@@ -2,11 +2,11 @@ all: node_modules
 
 node_modules: package.json pnpm-lock.yaml
 	@echo '⚡️ Installing Volta...'
-	@[ -n "$(which volta)" ] || curl https://get.volta.sh | bash
+	@[ -z "$(which volta)" ] || curl https://get.volta.sh | bash
 	@echo '📚 Installing pnpm...'
-	@[ -n "$(which pnpm)" ] || curl -fsSL https://get.pnpm.io/install.sh | sh -
+	@[ -z "$(which pnpm)" ] || curl -fsSL https://get.pnpm.io/install.sh | sh -
 	@echo '🧱 Setting up project...'
-	@volta fetch node
+	@volta fetch node@16.17.1
 	@pnpm install
 	@cp .env.sample .env
 	@pnpm prisma generate

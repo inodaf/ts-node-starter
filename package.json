@@ -32,7 +32,7 @@
     "altair-fastify-plugin": "^4.5.3",
     "class-validator": "^0.13.2",
     "dotenv": "^16.0.2",
-    "fastify": "^4.3.0",
+    "fastify": "^4.10.2",
     "fastify-cors": "^6.1.0",
     "graphql": "^15.5.1",
     "joi": "^17.6.0",

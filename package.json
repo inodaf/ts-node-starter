@@ -30,7 +30,7 @@
     "@fastify/helmet": "^9.1.0",
     "@prisma/client": "^4.1.0",
     "altair-fastify-plugin": "^4.5.3",
-    "class-validator": "^0.13.2",
+    "class-validator": "^0.14.0",
     "dotenv": "^16.0.2",
     "fastify": "^4.3.0",
     "fastify-cors": "^6.1.0",

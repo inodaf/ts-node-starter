@@ -37,7 +37,7 @@
     "graphql": "^15.5.1",
     "joi": "^17.6.0",
     "lodash.merge": "^4.6.2",
-    "mercurius": "^8.11.2",
+    "mercurius": "^8.13.2",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1"
   },
